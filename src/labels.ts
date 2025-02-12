@@ -5,10 +5,11 @@ export default  {
     STATUS_USER: "Usuario inactivo",
     ERROR_TOKEN: "No se pudo generar el token",
     ERROR_SERVER: "Error 500",
-    SUCCESSFUL_LOGIN: "Inicio realizado correctamente",
+    SUCCESSFUL_LOGIN: "Inicio de sesion exitoso",
     TOKEN_FAILED: "No se pudo validar el token.",
     AUTHORIZATION: "Authorization",
-    EMPTY_FIELD: "Campo requerido"
+    EMPTY_FIELD: "Campo requerido",
+    SUCCESFUL_REGISTER: "Usuario registrado correctamente"
 
 
 }
