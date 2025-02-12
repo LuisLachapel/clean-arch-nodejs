@@ -43,3 +43,6 @@ const login = async (req: Request, res: Response) => {
     console.error(error);
   }
 };
+
+
+export default login
