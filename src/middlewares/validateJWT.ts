@@ -3,9 +3,10 @@ import labels from "../labels";
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
 import Login from "../models/login.model"
+import debug from "debug";
 
 
-
+const log = debug("app:module-validateJwt-middlewares")
 
 const validateJwt = async(req: Request, res: Response, next: NextFunction) => {
     dotenv.config();
@@ -38,7 +39,7 @@ const validateJwt = async(req: Request, res: Response, next: NextFunction) => {
 
         
     } catch (error) {
-        console.error(error)
+        log(error)
         res.status(500).json({
             message: labels.ERROR_SERVER,
             

@@ -1,6 +1,11 @@
 import {Request, Response, NextFunction} from "express"
 import {validationResult} from "express-validator"
 import labels  from "../labels"
+import debug from "debug"
+
+
+const log = debug("app:module-validateFields-middlewares")
+
 
 const validateFieldsRequest = (req: Request, res: Response, next: NextFunction): void => {
     try {
@@ -16,7 +21,7 @@ const validateFieldsRequest = (req: Request, res: Response, next: NextFunction):
         next();
         
     } catch (error) {
-        console.error(error)
+        log(error)
         res.status(500).json({
             message: labels.ERROR_SERVER
         })

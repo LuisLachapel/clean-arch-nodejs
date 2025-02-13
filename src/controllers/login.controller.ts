@@ -3,8 +3,12 @@ import labels from "../labels";
 import LoginModel from "../models/login.model";
 import bcrypt from "bcryptjs";
 import getJwt from "../helpers/jwt";
+import debug from "debug"
+
+const log = debug("app:module-login-controller")
 
 const login = async (req: Request, res: Response) => {
+
   try {
     const { username, password } = req.body;
 
@@ -40,7 +44,7 @@ const login = async (req: Request, res: Response) => {
       expiresIn: 3600,
     });
   } catch (error) {
-    console.error(error);
+    log(error);
   }
 };
 

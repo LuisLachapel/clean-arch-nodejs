@@ -1,8 +1,11 @@
 import { sign } from "jsonwebtoken";
 import dotenv from "dotenv";
 import labels from "../labels";
+import debug = require("debug");
 
 dotenv.config();
+const log = debug("app:module-jwt-helpers")
+
 
 const getJwt = (uid: string) => {
   try {
@@ -25,7 +28,7 @@ const getJwt = (uid: string) => {
       );
     });
   } catch (error) {
-    console.error(error);
+    log(error);
     throw new Error(labels.ERROR_SERVER);
   }
 };

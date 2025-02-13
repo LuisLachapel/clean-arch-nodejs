@@ -2,6 +2,10 @@ import { Request, Response } from "express";
 import Login from "../models/login.model";
 import bcript from "bcryptjs";
 import labels from "../labels";
+import debug from "debug";
+
+
+const log = debug("app:module-user-controller")
 
 export const createUser = async (req: Request, res: Response) => {
   try {
@@ -17,7 +21,7 @@ export const createUser = async (req: Request, res: Response) => {
       username: user._username,
     });
   } catch (error) {
-    console.error(error);
+    log(error);
     res.status(500).json({
       message: labels.ERROR_SERVER,
     });
