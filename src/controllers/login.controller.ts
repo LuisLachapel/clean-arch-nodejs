@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import labels from "../labels";
 import LoginModel from "../models/login.model";
 import bcrypt from "bcryptjs";

@@ -5,13 +5,13 @@ class Login {
     @Prop({required: true, trim:true, unique: true, type: () => String})
     private username : string;
 
-    @Prop({required: true, trim: true, type: () => String, minlength: 5, maxlength: 8})
+    @Prop({required: true, trim: true, type: () => String})
     private password : string;
 
     @Prop({required: true, type: () => String})
     private role : string;
 
-    @Prop({required: true, type: () => Boolean})
+    @Prop({required: true, type: () => Boolean, default: true})
     private status : boolean;
 
     constructor(username: string, password: string, role : string, status: boolean){
@@ -38,7 +38,7 @@ class Login {
     }
 
     set _password(password: string){
-        this._password = password
+        this.password = password
     }
 }
 
