@@ -10,7 +10,10 @@ export default  {
     AUTHORIZATION: "Authorization",
     EMPTY_FIELD: "Campo requerido",
     SUCCESFUL_REGISTER: "Usuario registrado correctamente",
-    NOT_FOUND: "No se encontro la información"
+    NOT_FOUND: "No se encontro la información",
+    SUCCESFUL_INSERT: "Registro insertado correctamente",
+    SUCCESFUL_UPDATE: "Registro actualizado correctamente",
+    SUCCESFUL_DELETE: "Registro eliminado correctamente"
 
 
 }
