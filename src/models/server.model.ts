@@ -4,6 +4,7 @@ import labels from "../labels";
 import dotenv from "dotenv";
 import loginRoutes from "../routes/login.routes";
 import userRoutes from "../routes/user.routes"
+import productRouter from "../routes/product.routes"
 import cors from "cors"
 
 dotenv.config();
@@ -14,11 +15,13 @@ class Server {
   //Paths
   private login_path: string;
   private user_path: string;
+  private product_path: string;
 
   constructor() {
     (this.app = express()), (this.port = process.env.PORT || "3000");
     this.login_path = "/api/login";
-    this.user_path = "/api/user"
+    this.user_path = "/api/user";
+    this.product_path = "/api/products";
 
     this.db_connect();
     this.middlewares();
@@ -38,6 +41,7 @@ class Server {
   routes(){
     this.app.use(this.login_path,loginRoutes)
     this.app.use(this.user_path, userRoutes)
+    this.app.use(this.product_path, productRouter)
   }
 
   middlewares(){

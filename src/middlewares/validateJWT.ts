@@ -8,7 +8,7 @@ import debug from "debug";
 
 const log = debug("app:module-validateJwt-middlewares")
 
-const validateJwt = async(req: Request, res: Response, next: NextFunction) => {
+const validateJwt = async(req: Request, res: Response, next: NextFunction): Promise<any> => {
     dotenv.config();
     try {
 

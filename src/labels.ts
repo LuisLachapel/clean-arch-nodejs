@@ -1,3 +1,5 @@
+
+
 export default  {
     LISTEN_SERVER: "Servidor ejecutandose en el puerto ",
     MENSSAGE_400: "Error en la consulta",
@@ -13,7 +15,9 @@ export default  {
     NOT_FOUND: "No se encontro la información",
     SUCCESFUL_INSERT: "Registro insertado correctamente",
     SUCCESFUL_UPDATE: "Registro actualizado correctamente",
-    SUCCESFUL_DELETE: "Registro eliminado correctamente"
+    SUCCESFUL_DELETE: "Registro eliminado correctamente",
+    NOT_VALID_ID: "No es un id valido",   
+    ID_NOT_EXIST: `El registro con el id {id} no existe`
 
 
 }
