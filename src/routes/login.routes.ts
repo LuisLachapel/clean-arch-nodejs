@@ -4,7 +4,7 @@ import { validateFieldsRequest } from "../middlewares/validateFields"
 
 const router = Router()
 
-router.post("/login",[
+router.post("/",[
     validateFieldsRequest
 ],login
 )

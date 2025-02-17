@@ -12,7 +12,7 @@ const validateJwt = async(req: Request, res: Response, next: NextFunction): Prom
     dotenv.config();
     try {
 
-        const token = req.header(labels.AUTHORIZATION)?.split(" ")[1]
+        const token = req.header(labels.AUTHORIZATION)
 
     if(!token){
         return res.status(401).json({

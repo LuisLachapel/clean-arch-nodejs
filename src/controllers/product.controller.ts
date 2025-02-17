@@ -66,12 +66,12 @@ export const createProduct = async (req: Request, res: Response) => {
 };
 
 export const updateProduct = async (req: Request, res: Response) => {
-  try {
+  try { 
     const id = req.params.id;
     const { _id, ...rest } = req.body;
 
     const product = await Product.findByIdAndUpdate(id, rest);
-    res.status(205).json({
+    res.status(200).json({
       message: labels.SUCCESFUL_UPDATE,
       product,
     });

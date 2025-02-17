@@ -20,7 +20,7 @@ router.get("/byprice", [validateJwt], getProductsByPrice);
 router.post("/create", [validateJwt, validateFieldsRequest], createProduct);
 
 router.put(
-  "/update:id",
+  "/update/:id",
   [
     validateJwt,
     check("id", labels.NOT_VALID_ID).isMongoId(),
@@ -31,7 +31,7 @@ router.put(
 );
 
 router.delete(
-  "/delete:id",
+  "/delete/:id",
   [
     validateJwt,
     check("id", labels.NOT_VALID_ID).isMongoId(),

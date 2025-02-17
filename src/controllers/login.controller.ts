@@ -7,18 +7,18 @@ import debug from "debug"
 
 const log = debug("app:module-login-controller")
 
-const login = async (req: Request, res: Response) => {
-
+const login = async (req: Request, res: Response): Promise<void> => { 
   try {
     const { username, password } = req.body;
 
-    const user = LoginModel.findOne(username);
+    const user = await LoginModel.findOne({ username });
 
     if (!user) {
       res.status(400).json({
         message: labels.MENSSAGE_400,
         response: labels.FAILED_LOGIN,
       });
+      return; // Importante para evitar ejecución adicional
     }
 
     if (!user._status) {
@@ -26,6 +26,7 @@ const login = async (req: Request, res: Response) => {
         message: labels.MENSSAGE_400,
         response: labels.STATUS_USER,
       });
+      return;
     }
 
     const validPassword = bcrypt.compareSync(password, user._password);
@@ -34,6 +35,7 @@ const login = async (req: Request, res: Response) => {
         message: labels.MENSSAGE_400,
         response: labels.FAILED_LOGIN,
       });
+      return;
     }
 
     const token = await getJwt(String(user._id));
@@ -45,8 +47,12 @@ const login = async (req: Request, res: Response) => {
     });
   } catch (error) {
     log(error);
+    res.status(500).json({
+      message: labels.ERROR_SERVER,
+    });
   }
 };
+
 
 
 export default login
