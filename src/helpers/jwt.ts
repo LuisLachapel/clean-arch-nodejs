@@ -7,10 +7,10 @@ dotenv.config();
 const log = debug("app:module-jwt-helpers")
 
 
-const getJwt = (uid: string) => {
+const getJwt = (uid: string, role: string) => {
   try {
     return new Promise((resolve, reject) => {
-      const payload = { uid };
+      const payload = { uid, role };
       sign(
         payload,
         process.env.SECRET_KEY || "",

@@ -5,6 +5,6 @@ import { createUser } from "../controllers/user.controller"
 
 const router = Router();
 
-router.post("/create",[validateJwt,validateFieldsRequest],createUser);
+router.post("/create",[validateJwt(""),validateFieldsRequest],createUser);
 
 export default router;

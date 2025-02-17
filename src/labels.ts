@@ -17,7 +17,8 @@ export default  {
     SUCCESFUL_UPDATE: "Registro actualizado correctamente",
     SUCCESFUL_DELETE: "Registro eliminado correctamente",
     NOT_VALID_ID: "No es un id valido",   
-    ID_NOT_EXIST: `El registro con el id {id} no existe`
+    ID_NOT_EXIST: `El registro con el id {id} no existe`,
+    ROLE_NOT_PERMISSIONS: "Su rol no cumple con los permisos para realizar esta acción"
 
 
 }

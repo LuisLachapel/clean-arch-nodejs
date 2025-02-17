@@ -38,7 +38,7 @@ const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    const token = await getJwt(String(user._id));
+    const token = await getJwt(String(user._id), user._role);
     res.status(200).json({
       message: labels.SUCCESSFUL_LOGIN,
       username: user._username,
