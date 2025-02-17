@@ -9,7 +9,7 @@ import debug from "debug";
 const log = debug("app:module-validateJwt-middlewares")
 
 
-const validateJwt = (roleToValidate: string) =>{
+const validateJwt = (roleToValidate?: string) =>{
     return async(req: Request, res: Response, next: NextFunction): Promise<any> => {
         dotenv.config();
         try {
@@ -37,7 +37,7 @@ const validateJwt = (roleToValidate: string) =>{
             })
         }
 
-        if(user._role !== roleToValidate && user._role !== "ADMIN"){
+        if(user._role !== roleToValidate && user._role !== "ADMIN" && roleToValidate){
             return res.status(401).json({
                 message: labels.ROLE_NOT_PERMISSIONS,
                 role: user._role

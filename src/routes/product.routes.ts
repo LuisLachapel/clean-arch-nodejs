@@ -15,14 +15,14 @@ const router = Router();
 
 router.get("/", [validateJwt("SUPER")], getProducts);
 
-router.get("/byprice", [validateJwt("")], getProductsByPrice);
+router.get("/byprice", [validateJwt()], getProductsByPrice);
 
-router.post("/create", [validateJwt(""), validateFieldsRequest], createProduct);
+router.post("/create", [validateJwt(), validateFieldsRequest], createProduct);
 
 router.put(
   "/update/:id",
   [
-    validateJwt(""),
+    validateJwt(),
     check("id", labels.NOT_VALID_ID).isMongoId(),
     check("id").custom(ProductExist),
     validateFieldsRequest,
@@ -33,7 +33,7 @@ router.put(
 router.delete(
   "/delete/:id",
   [
-    validateJwt(""),
+    validateJwt(),
     check("id", labels.NOT_VALID_ID).isMongoId(),
     check("id").custom(ProductExist),
     validateFieldsRequest,

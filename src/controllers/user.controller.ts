@@ -21,7 +21,7 @@ export const createUser = async (req: Request, res: Response) => {
       username: user._username,
     });
   } catch (error) {
-    log(error);
+    log(error);  
     res.status(500).json({
       message: labels.ERROR_SERVER,
     });

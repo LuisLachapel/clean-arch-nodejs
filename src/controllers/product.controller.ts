@@ -70,7 +70,13 @@ export const updateProduct = async (req: Request, res: Response) => {
     const id = req.params.id;
     const { _id, ...rest } = req.body;
 
-    const product = await Product.findByIdAndUpdate(id, rest);
+    const product = await Product.findByIdAndUpdate(id, rest, { new: true });
+
+    if (!product) {
+       res.status(404).json({ message: labels.ID_NOT_EXIST.replace("{id}", id) });
+       return; 
+    }
+
     res.status(200).json({
       message: labels.SUCCESFUL_UPDATE,
       product,
